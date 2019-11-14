@@ -1,14 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Data Lovers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <!--pagina de la pokepedia-->
+    <div class="padre">
+      <header class="header">
+        <div class="menu">
+          <div class="nav"></div>
+          <div class="social"></div>
+          <input type="text">
+          <button>Go</button>
+        </div>
+      </header>
+      <section class="opciones">
+        <div class="logo">
+          <div>
+            <img class="img" src="./img/Logo.png" alt="">
+          </div>
+
+          <div id="filtroOrdenar">
+            <select name="" id="selectOrder">
+              <option value="seleccione_opcion">Ordenar por</option>
+              <option value="A-Z">Ordenar A-Z</option>
+              <option value="Z-A">Ordena Z-A</option>
+              <option value="1-151">Ordena por número</option>
+            </select>
+          </div>
+
+          <div id="filtroTipo">
+              <select name="" id="selectType">
+                <option value="">Tipos de Pokemón</option>
+                <option value="Grass">Planta</option>
+                <option value="Poison">Veneno</option>
+                <option value="Fire">Fuego</option>
+                <option value="Water">Agua</option>
+                <option value="Normal">Normal</option>
+                <option value="Ground">Tierra</option>
+                <option value="Fighting">Lucha</option>
+                <option value="Rock">Roca</option>
+                <option value="Ice">Hielo</option>
+                <option value="Flying">Volador</option>
+                <option value="Bug">Bicho</option>
+                <option value="Electric">Eléctrico</option>
+                <option value="Fairy">Hada</option>
+                <option value="Psychic">Psiquico</option>
+                <option value="Ghost">Fantasma</option>
+                <option value="Dragon">Dragón</option>
+              </select>
+            </div>
+
+            <div id="filtroDebilidad">
+              <select name="" id="selectDebilidad">
+                <option value="">Debilidades</option>
+                <option value="Grass">Planta</option>
+                <option value="Poison">Veneno</option>
+                <option value="Fire">Fuego</option>
+                <option value="Water">Agua</option>
+                <option value="Normal">Normal</option>
+                <option value="Ground">Tierra</option>
+                <option value="Fighting">Lucha</option>
+                <option value="Rock">Roca</option>
+                <option value="Ice">Hielo</option>
+                <option value="Flying">Volador</option>
+                <option value="Bug">Bicho</option>
+                <option value="Electric">Eléctrico</option>
+                <option value="Fairy">Hada</option>
+                <option value="Psychic">Psiquico</option>
+                <option value="Ghost">Fantasma</option>
+                <option value="Dragon">Dragón</option>
+              </select>
+            </div>
+        </div>
+
+      </section>
+      <section class="contenedor">
+       <div class="lista-pokemones"></div>
+       <!--segunda forma de llamar con json-->
+       <div class="" id="contenido">
+
+       </div>
+      </section>
+      <footer class="footer">
+        <nav class="pie">Pagina desarrollada por Lyascat</nav>
+      </footer>
+
+    </div>
+
     <script type="module" src="main.js"></script>
   </body>
 </html>

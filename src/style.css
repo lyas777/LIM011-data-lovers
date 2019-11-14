@@ -1,0 +1,112 @@
+*{
+  margin: 10px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+body{
+  background-image: url(./img/fondo.jpg);
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+.padre{
+  font: 100;
+
+}
+  .header{
+    background: #0A2C59;
+    display: flex;
+    flex-flow: column nowrap;
+
+  }
+    .menu{
+      display: flex;
+      flex-flow: row nowrap;
+      height: 100px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+      .nav{
+        background: rgba(191, 146, 10, 0.247);
+        flex:  1 auto;
+        height: 30px;
+
+      }
+      .social{
+        background: rgba(191, 146, 10, 0.247);
+        flex: 1 auto;
+        height: 30px;
+        }
+
+  .opciones{
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+    .img{
+      width: 30%; height: 30%;
+      display:block;
+      margin:auto;
+    }
+  .contenedor{
+    display: flex;
+  }
+    .lista-pokemones{
+
+      flex: 2 1 auto;
+      display: flex;
+      flex-flow: row wrap;
+
+    }
+      .card{
+        width: 100%;
+        background: #ffffffdc ;
+        border-radius: 20px;
+        text-align: center;
+        margin-bottom: 1%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        transition: 0.3s;
+        flex: 1 1 30%;
+      }
+      .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
+      .card img {
+        border-radius: 5px 5px 0 0;
+        width: 200px;
+      }
+
+
+
+  .footer{
+    background: #0A2C59;
+    display: flex;
+    justify-content: center;
+  }
+    .pie{
+      background: #e6af2e;
+      width: 300px;
+    }
+
+    /*
+@media all and (max-width: 800px){
+  .contenedor{
+    flex-direction: column;
+  }
+  .menu {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+*/
+
+/*de las tarjetas*/
+
+
+
+

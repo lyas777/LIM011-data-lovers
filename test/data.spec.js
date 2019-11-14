@@ -1,13 +1,30 @@
 // importamos la función `example`
-import { example } from "../src/data";
+// eslint-disable-next-line import/named
 
-describe('example', () => {
+import { dataPokemon } from '../src/data';
 
+describe('dataPokemon', () => {
   it('debería ser una función', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof dataPokemon).toBe('function');
   });
 
-  describe('example', () => {
-    // escribe aquí tu test
+  it('Debería pintar todos los pokemones', () => {
+    const input = [{ name: 'Bulbasaur' }, { name: 'Ivysaur' }, { name: 'Venusaur' }];
+    const output = [{ name: 'Bulbasaur' }, { name: 'Ivysaur' }, { name: 'Venusaur' }];
+    expect(dataPokemon(input)).toBe(output);
   });
 });
+
+
+/*
+describe('ordenarAZ', () => {
+  it('debería ser una función', () => {
+    expect(typeof ordenarAZ).toBe('function');
+  });
+
+  // eslint-disable-next-line jest/no-identical-title
+  it('debería ser una función', () => {
+    expect(typeof ordenarAZ).toBe('function');
+  });
+});
+*/
