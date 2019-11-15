@@ -40,16 +40,9 @@ export const traer = (contenido) => {
 };
 
 // Funciones para ordenar
-export const ordenarAZ = (array) => {
-  array.sort((a, b) => (a.name > b.name ? 1 : -1));
-  return array;
-};
+export const ordenarAZ = (array) => array.sort((a, b) => (a.name > b.name ? 1 : -1));
 export const ordenarZA = (array) => ordenarAZ(array).reverse();
-
-export const ordenarNum = (array) => {
-  array.sort((a, b) => (a.num > b.num ? 1 : -1));
-  return array;
-};
+export const ordenarNum = (array) => array.sort((a, b) => (a.num > b.num ? 1 : -1));
 
 /* para filtrar* usando for */
 
@@ -78,68 +71,3 @@ export const filtroPorDebilidad = (array, debilidad) => {
   }
   return newArray;
 };
-
-// función para ordenar
-
-/*
-export const ordenar = (array,datoOrden,tipoOrden) =>{
-  const newArray = [];
-    if(datoOrden=="name"&&tipoOrden==="A-Z"){
-        array.sort((a,b)=>{
-        if(a.name<b.name){
-          return -1;
-        }
-        if(a.name>b.name){
-          return 1;
-        }
-        return 0;
-      })
-
-    return array;
-    console.log(array);
-
-  }
-
-
-  if(datoOrden==="name"&&tipoOrden=="Z-A"){
-    array.sort((a,b)=>{
-      if(a.name>b.name){
-        return -1;
-      }
-      if(a.name<b.name){
-        return 1;
-      }
-      return 0;
-    })
-    return array;
-  }
-  if(datoOrden==="num"&&tipoOrden==="1-151"){
-    array.sort((a,b)=>{
-      if(a.id<b.id){
-        return -1;
-      }
-      if(a.id > b.id){
-        return 1;
-      }
-      return 0;
-    })
-    return array;
-  }
-}
-*/
-
-// otra forma
-/*
-export const ordenar = (array) =>{
-     array.sort((a,b)=>{
-     if(a.name<b.name){
-          return -1;
-        }
-        if(a.name>b.name){
-          return 1;
-        }
-        return 0;
-      })
-    return array;
-};
-*/
