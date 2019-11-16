@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 28403512e4c909cd598bf67baacf0695fb9b0e54
 {
   "plugins": ["@babel/plugin-transform-modules-commonjs"]
 }

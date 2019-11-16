@@ -20,16 +20,9 @@ export const dataPokemon = (array) => {
 };
 
 // Funciones para ordenar
-export const ordenarAZ = (array) => {
-  array.sort((a, b) => (a.name > b.name ? 1 : -1));
-  return array;
-};
+export const ordenarAZ = (array) => array.sort((a, b) => (a.name > b.name ? 1 : -1));
 export const ordenarZA = (array) => ordenarAZ(array).reverse();
-
-export const ordenarNum = (array) => {
-  array.sort((a, b) => (a.num > b.num ? 1 : -1));
-  return array;
-};
+export const ordenarNum = (array) => array.sort((a, b) => (a.num > b.num ? 1 : -1));
 
 /* para filtrar* usando for */
 
@@ -58,6 +51,7 @@ export const filtroPorDebilidad = (array, debilidad) => {
   }
   return newArray;
 };
+<<<<<<< HEAD
 
 // función para ordenar
 
@@ -144,3 +138,5 @@ export const traer = (contenido) => {
     });
 };
 */
+=======
+>>>>>>> 28403512e4c909cd598bf67baacf0695fb9b0e54
