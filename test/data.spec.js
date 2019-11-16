@@ -1,4 +1,4 @@
-/ importamos la función `example`
+// importamos la función `example`
 // eslint-disable-next-line import/named
 import { dataPokemon, ordenarAZ } from '../src/data';
 const input = [
