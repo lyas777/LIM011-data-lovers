@@ -19,26 +19,6 @@ export const dataPokemon = (array) => {
   return listPokemon;
 };
 
-// Funcion donde usa data de pokemon.json
-
-export const traer = (contenido) => {
-  fetch('./data/pokemon/pokemon.json')
-    .then((data) => data.json())
-    .then((data) => {
-      // console.log(data);
-      // console.log(data.pokemon[0]);
-      for (let i = 0; i < data.pokemon.length; i += 1) {
-        // eslint-disable-next-line no-param-reassign
-        contenido.innerHTML += `
-      <img src="${data.pokemon[i].img}">
-      <h5>Nombre: ${data.pokemon[i].name}</h5>
-      <h5>Numero: ${data.pokemon[i].num}</h5>
-      <h5>Tipo: ${data.pokemon[i].weaknesses}</h5>
-      `;
-      }
-    });
-};
-
 // Funciones para ordenar
 export const ordenarAZ = (array) => {
   array.sort((a, b) => (a.name > b.name ? 1 : -1));
@@ -141,5 +121,26 @@ export const ordenar = (array) =>{
         return 0;
       })
     return array;
+};
+*/
+
+// Funcion donde usa data de pokemon.json
+/*
+export const traer = (contenido) => {
+  fetch('./data/pokemon/pokemon.json')
+    .then((data) => data.json())
+    .then((data) => {
+      // console.log(data);
+      // console.log(data.pokemon[0]);
+      for (let i = 0; i < data.pokemon.length; i += 1) {
+        // eslint-disable-next-line no-param-reassign
+        contenido.innerHTML += `
+      <img src="${data.pokemon[i].img}">
+      <h5>Nombre: ${data.pokemon[i].name}</h5>
+      <h5>Numero: ${data.pokemon[i].num}</h5>
+      <h5>Tipo: ${data.pokemon[i].weaknesses}</h5>
+      `;
+      }
+    });
 };
 */
