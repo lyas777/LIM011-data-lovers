@@ -14,16 +14,18 @@
         <div class="menu">
           <div class="nav"></div>
           <div class="social"></div>
-          <input type="text">
-          <button>Go</button>
+          <input id="inputSearch" class="searchInput" type="text" />
+          <button id="botonSearch" class="searchInput">Buscar</button>
         </div>
       </header>
       <section class="opciones">
         <div class="logo">
           <div>
-            <img class="img" src="./img/Logo.png" alt="">
+            <img class="img" src="./img/Logo.png" alt="" />
           </div>
+        </div>
 
+        <div class="listasSeleccion">
           <div id="filtroOrdenar">
             <select name="" id="selectOrder">
               <option value="seleccione_opcion">Ordenar por</option>
@@ -34,62 +36,68 @@
           </div>
 
           <div id="filtroTipo">
-              <select name="" id="selectType">
-                <option value="">Tipos de Pokemón</option>
-                <option value="Grass">Planta</option>
-                <option value="Poison">Veneno</option>
-                <option value="Fire">Fuego</option>
-                <option value="Water">Agua</option>
-                <option value="Normal">Normal</option>
-                <option value="Ground">Tierra</option>
-                <option value="Fighting">Lucha</option>
-                <option value="Rock">Roca</option>
-                <option value="Ice">Hielo</option>
-                <option value="Flying">Volador</option>
-                <option value="Bug">Bicho</option>
-                <option value="Electric">Eléctrico</option>
-                <option value="Fairy">Hada</option>
-                <option value="Psychic">Psiquico</option>
-                <option value="Ghost">Fantasma</option>
-                <option value="Dragon">Dragón</option>
-              </select>
-            </div>
+            <select name="" id="selectType">
+              <option value="" disabled selected>Tipos de Pokemón</option>
+              <option value="Grass">Planta</option>
+              <option value="Poison">Veneno</option>
+              <option value="Fire">Fuego</option>
+              <option value="Water">Agua</option>
+              <option value="Normal">Normal</option>
+              <option value="Ground">Tierra</option>
+              <option value="Fighting">Lucha</option>
+              <option value="Rock">Roca</option>
+              <option value="Ice">Hielo</option>
+              <option value="Flying">Volador</option>
+              <option value="Bug">Bicho</option>
+              <option value="Electric">Eléctrico</option>
+              <option value="Fairy">Hada</option>
+              <option value="Psychic">Psiquico</option>
+              <option value="Ghost">Fantasma</option>
+              <option value="Dragon">Dragón</option>
+            </select>
+          </div>
 
-            <div id="filtroDebilidad">
-              <select name="" id="selectDebilidad">
-                <option value="">Debilidades</option>
-                <option value="Grass">Planta</option>
-                <option value="Poison">Veneno</option>
-                <option value="Fire">Fuego</option>
-                <option value="Water">Agua</option>
-                <option value="Normal">Normal</option>
-                <option value="Ground">Tierra</option>
-                <option value="Fighting">Lucha</option>
-                <option value="Rock">Roca</option>
-                <option value="Ice">Hielo</option>
-                <option value="Flying">Volador</option>
-                <option value="Bug">Bicho</option>
-                <option value="Electric">Eléctrico</option>
-                <option value="Fairy">Hada</option>
-                <option value="Psychic">Psiquico</option>
-                <option value="Ghost">Fantasma</option>
-                <option value="Dragon">Dragón</option>
-              </select>
-            </div>
+          <div id="filtroDebilidad">
+            <select name="" id="selectDebilidad">
+              <option value="" disabled selected>Debilidades</option>
+              <option value="Grass">Planta</option>
+              <option value="Poison">Veneno</option>
+              <option value="Fire">Fuego</option>
+              <option value="Water">Agua</option>
+              <option value="Normal">Normal</option>
+              <option value="Ground">Tierra</option>
+              <option value="Fighting">Lucha</option>
+              <option value="Rock">Roca</option>
+              <option value="Ice">Hielo</option>
+              <option value="Flying">Volador</option>
+              <option value="Bug">Bicho</option>
+              <option value="Electric">Eléctrico</option>
+              <option value="Fairy">Hada</option>
+              <option value="Psychic">Psiquico</option>
+              <option value="Ghost">Fantasma</option>
+              <option value="Dragon">Dragón</option>
+            </select>
+          </div>
+          <div id="FiltroPorDistancia">
+            <select name="" id="selectDistanciaHuevos">
+              <option value="" disabled selected>Huevos</option>
+              <option value="Not in Eggs">No tiene Huevos</option>
+              <option value="2 km">2 KM</option>
+              <option value="5 km">5 KM</option>
+              <option value="10 km">10 KM</option>
+            </select>
+          </div>
         </div>
-
       </section>
-      <section class="contenedor">
-       <div class="lista-pokemones"></div>
-       <!--segunda forma de llamar con json-->
-       <div class="" id="contenido">
 
-       </div>
+      <section class="contenedor">
+        <div class="lista-pokemones"></div>
+        <!--segunda forma de llamar con json-->
+        <div class="" id="contenido"></div>
       </section>
       <footer class="footer">
         <nav class="pie">Pagina desarrollada por Lyascat</nav>
       </footer>
-
     </div>
 
     <script type="module" src="main.js"></script>

@@ -1,9 +1,10 @@
 import POKEMON from './data/pokemon/pokemon.js';
 import {
-  dataPokemon, ordenarAZ, ordenarZA, ordenarNum, filtroPorTipo, filtroPorDebilidad,
+  dataPokemon, ordenarAZ, ordenarNum, filterForType, filterForWeak, searchPokemon, filterForEgg,
 } from './data.js';
 
 // const dataExtraida = dataPokemon(POKEMON);
+
 const arrayPokemon = dataPokemon(POKEMON);
 // eslint-disable-next-line no-console
 console.log(arrayPokemon);
@@ -32,6 +33,7 @@ containerPokemon.innerHTML = plantilla(arrayPokemon);
 const selectOrder = document.getElementById('selectOrder');
 const selectType = document.getElementById('selectType');
 const selectDebilidad = document.getElementById('selectDebilidad');
+const selectDistanciaHuevos = document.getElementById('selectDistanciaHuevos');
 
 // Ordenar
 selectOrder.addEventListener('change', () => {
@@ -40,7 +42,7 @@ selectOrder.addEventListener('change', () => {
   if (selectOrder.value === 'A-Z') {
     containerPokemon.innerHTML = plantilla(ordenarAZ(arrayPokemon));
   } else if (selectOrder.value === 'Z-A') {
-    containerPokemon.innerHTML = plantilla(ordenarZA(arrayPokemon));
+    containerPokemon.innerHTML = plantilla(ordenarAZ(arrayPokemon).reverse());
   } else if (selectOrder.value === '1-151') {
     containerPokemon.innerHTML = plantilla(ordenarNum(arrayPokemon));
   }
@@ -51,7 +53,7 @@ selectType.addEventListener('change', () => {
   // eslint-disable-next-line no-console
   console.log(selectType.value);
   const selectTipo = selectType.value;
-  const resultadoFilterTipo = filtroPorTipo(arrayPokemon, selectTipo);
+  const resultadoFilterTipo = filterForType(arrayPokemon, selectTipo);
   containerPokemon.innerHTML = plantilla(resultadoFilterTipo);
 });
 
@@ -60,6 +62,30 @@ selectDebilidad.addEventListener('change', () => {
   // eslint-disable-next-line no-console
   console.log(selectDebilidad.value);
   const selectDeb = selectDebilidad.value;
-  const resultadoFilterDebilidad = filtroPorDebilidad(arrayPokemon, selectDeb);
+  const resultadoFilterDebilidad = filterForWeak(arrayPokemon, selectDeb);
   containerPokemon.innerHTML = plantilla(resultadoFilterDebilidad);
 });
+
+selectDistanciaHuevos.addEventListener('change', () => {
+  // console.log(selectDistanciaHuevos.value);
+  const selectEgg = selectDistanciaHuevos.value;
+  const resultadoFilterDistancia = filterForEgg(arrayPokemon, selectEgg);
+  containerPokemon.innerHTML = plantilla(resultadoFilterDistancia);
+});
+
+// Buscar
+const inputSearch = document.querySelector('#inputSearch');
+
+inputSearch.addEventListener('keyup', () => {
+  const pokemon = inputSearch.value.toLowerCase();
+  const pokemonBuscado = searchPokemon(arrayPokemon, pokemon);
+  containerPokemon.innerHTML = plantilla(pokemonBuscado);
+});
+/*
+// Buscar pokemon
+inputSearch.addEventListener('input', (event) => {
+  console.log(inputSearch);
+  const pokemonBuscado = searchPokemon(arrayPokemon, event.target.value);
+  containerPokemon.innerHTML = plantilla(pokemonBuscado);
+});
+*/

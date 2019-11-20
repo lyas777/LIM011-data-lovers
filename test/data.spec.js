@@ -1,7 +1,9 @@
 // importamos la función `example`
 // eslint-disable-next-line import/named
 
-import { dataPokemon, ordenarAZ } from '../src/data';
+import {
+  dataPokemon, ordenarAZ, ordenarNum, filterForType, filterForWeak, filterForEgg, searchPokemon,
+} from '../src/data';
 
 const input = [
   {
@@ -64,6 +66,7 @@ const output = [
     img: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png',
     avg_spawns: 69,
     weaknesses: ['Fire', 'Ice', 'Flying', 'Psychic'],
+    egg: '2 km',
   },
   {
     id: 2,
@@ -73,6 +76,7 @@ const output = [
     img: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png',
     avg_spawns: 4.2,
     weaknesses: ['Fire', 'Ice', 'Flying', 'Psychic'],
+    egg: 'Not in Eggs',
   },
   {
     id: 3,
@@ -82,6 +86,7 @@ const output = [
     img: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png',
     avg_spawns: 1.7,
     weaknesses: ['Fire', 'Ice', 'Flying', 'Psychic'],
+    egg: 'Not in Eggs',
   },
 ];
 
@@ -113,7 +118,52 @@ describe('ordenarAZ', () => {
     expect(typeof ordenarAZ).toBe('function');
   });
 
-  it('Debería ordenar los pokemones', () => {
+  it('Debería ordenar los pokemones de la A a la Z', () => {
     expect(ordenarAZ(input1)).toEqual(output1);
+  });
+});
+
+describe('ordenarNum', () => {
+  it('Debería ser una función', () => {
+    expect(typeof ordenarNum).toBe('function');
+  });
+  it('Debería ordenar los pokemones del 1 - 151', () => {
+    expect(ordenarNum(output)).toEqual(output);
+  });
+});
+
+describe('filterForType', () => {
+  it('Debería ser una función', () => {
+    expect(typeof filterForType).toBe('function');
+  });
+  it('Debería monstrar una lista del pokemon que coincida', () => {
+    expect(filterForType(input, 'Grass')[0].type).toEqual(['Grass', 'Poison']);
+  });
+});
+
+describe('filterForWeak', () => {
+  it('Debería ser una función', () => {
+    expect(typeof filterForType).toBe('function');
+  });
+  it('Debería monstrar una lista del pokemon que coincida', () => {
+    expect(filterForWeak(input, 'Fire')[0].weaknesses).toEqual(['Fire', 'Ice', 'Flying', 'Psychic']);
+  });
+});
+
+describe('filterForEgg', () => {
+  it('Debería ser una función', () => {
+    expect(typeof filterForEgg).toBe('function');
+  });
+  it('Debería monstrar una lista segun la distancia de evolución de lo huevos', () => {
+    expect(filterForEgg(input, '2 km')[0].egg).toEqual('2 km');
+  });
+});
+
+describe('searchPokemon', () => {
+  it('Debería ser una función', () => {
+    expect(typeof searchPokemon).toBe('function');
+  });
+  it('Debería hacer una busqueda', () => {
+    expect(searchPokemon(input, 'LHST')).toStrictEqual([]);
   });
 });
