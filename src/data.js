@@ -23,7 +23,6 @@ export const dataPokemon = (array) => {
 // Funciones para ordenar de AZ, ZA y del 1-151
 export const ordenarAZ = (array) => array.sort((a, b) => (a.name > b.name ? 1 : -1));
 export const ordenarNum = (array) => array.sort((a, b) => (a.num > b.num ? 1 : -1));
-
 /* para filtrar por tipo, debilidad y la distancia de huevos */
 // eslint-disable-next-line arrow-body-style
 export const filterForType = (array, tipoPokemon) => {
@@ -34,17 +33,15 @@ export const filterForWeak = (array, debilidad) => {
   return array.filter((obj) => obj.weaknesses.indexOf(debilidad) !== -1);
 };
 
+// eslint-disable-next-line arrow-body-style
+export const filterForEgg = (array, distancia) => {
+  return array.filter((obj) => obj.egg.indexOf(distancia) !== -1);
+};
 // Buscar Pokemon
 // eslint-disable-next-line arrow-body-style
 export const searchPokemon = (array, pokemon) => {
   return array.filter((obj) => obj.name.toLowerCase().indexOf(pokemon) !== -1);
 };
-
-// eslint-disable-next-line arrow-body-style
-export const filterForEgg = (array, distancia) => {
-  return array.filter((obj) => obj.egg.indexOf(distancia) !== -1);
-};
-
 
 // eslint-disable-next-line arrow-body-style
 /*

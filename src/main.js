@@ -8,19 +8,17 @@ import {
 const arrayPokemon = dataPokemon(POKEMON);
 // eslint-disable-next-line no-console
 console.log(arrayPokemon);
-const containerPokemon = document.querySelector('.lista-pokemones');
+const containerPokemon = document.querySelector('.contenedor');
 
 // Funcion para generar la Plantilla de lista de pokemons
 const plantilla = (array) => {
   let stringTemplate = '';
   for (let i = 0; i < array.length; i += 1) {
     stringTemplate += `
-      <div class="card">
-        <img src="${array[i].img}"/>
+      <div id="cardPokemon" class="card">
         <p>${array[i].num}</p>
         <p>${array[i].name}</p>
-        <p>Tipo: ${array[i].type}</p>
-        <p>Debilidad: ${array[i].weaknesses}</p>
+        <img src="${array[i].img}"/>
       </div>
     `;
   }
@@ -81,11 +79,29 @@ inputSearch.addEventListener('keyup', () => {
   const pokemonBuscado = searchPokemon(arrayPokemon, pokemon);
   containerPokemon.innerHTML = plantilla(pokemonBuscado);
 });
+
+// MODAL
+const modal = document.getElementById('modal');
+// const cardPokemon = document.getElementById('cardPokemon');
+const span = document.getElementsByClassName('close')[0];
 /*
-// Buscar pokemon
-inputSearch.addEventListener('input', (event) => {
-  console.log(inputSearch);
-  const pokemonBuscado = searchPokemon(arrayPokemon, event.target.value);
-  containerPokemon.innerHTML = plantilla(pokemonBuscado);
+const Funcion = () => {
+  console.log('holaaaaaa');
+
+};
+// cuando le damos click cada tarjeta
+containerPokemon.addEventListener('click', () => {
+  Funcion();
+  // utilizar map
+  // modal.style.display = 'block';
 });
 */
+// Cuando el usuario da click fuera del modal, se debe cerrar
+span.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+window.addEventListener('click', (event) => {
+  if (event.tarjet === modal) {
+    modal.style.display = 'none';
+  }
+});
