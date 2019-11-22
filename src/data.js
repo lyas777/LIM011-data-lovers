@@ -22,33 +22,26 @@ export const dataPokemon = (array) => {
 
 // Funciones para ordenar de AZ, ZA y del 1-151
 export const ordenarAZ = (array) => array.sort((a, b) => (a.name > b.name ? 1 : -1));
-export const ordenarNum = (array) => array.sort((a, b) => (a.num > b.num ? 1 : -1));
+export const ordenarNum = (array) => array.sort((a, b) => (a.id > b.id ? 1 : -1));
+// Funcion para ordenar por Aparaición
+export const ordenarSpaw = (array) => array.sort((a, b) => (a.avg_spawns < b.avg_spawns ? 1 : -1));
+
 /* para filtrar por tipo, debilidad y la distancia de huevos */
-// eslint-disable-next-line arrow-body-style
-export const filterForType = (array, tipoPokemon) => {
-  return array.filter((obj) => (obj.type.indexOf(tipoPokemon) !== -1));
-};
-// eslint-disable-next-line arrow-body-style
-export const filterForWeak = (array, debilidad) => {
-  return array.filter((obj) => obj.weaknesses.indexOf(debilidad) !== -1);
-};
+export const filterForType = (array, tipoPokemon) => (
+  array.filter((obj) => (obj.type.indexOf(tipoPokemon) !== -1))
+);
 
-// eslint-disable-next-line arrow-body-style
-export const filterForEgg = (array, distancia) => {
-  return array.filter((obj) => obj.egg.indexOf(distancia) !== -1);
-};
+export const filterForWeak = (array, debilidad) => (
+  array.filter((obj) => obj.weaknesses.indexOf(debilidad) !== -1)
+);
+export const filterForEgg = (array, distancia) => (
+  array.filter((obj) => obj.egg.indexOf(distancia) !== -1)
+);
 // Buscar Pokemon
-// eslint-disable-next-line arrow-body-style
-export const searchPokemon = (array, pokemon) => {
-  return array.filter((obj) => obj.name.toLowerCase().indexOf(pokemon) !== -1);
-};
+export const searchPokemon = (array, pokemon) => (
+  array.filter((obj) => obj.name.toLowerCase().indexOf(pokemon) !== -1)
+);
 
-// eslint-disable-next-line arrow-body-style
-/*
-export const filterForEgg = (array, distancia) => {
-  return array.filet((obj) => obj.egg.indexOf(distancia) !== -1);
-};
-*/
 
 /*
 // Funcion donde usa data de pokemon.json

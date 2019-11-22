@@ -1,6 +1,8 @@
 import POKEMON from './data/pokemon/pokemon.js';
 import {
-  dataPokemon, ordenarAZ, ordenarNum, filterForType, filterForWeak, searchPokemon, filterForEgg,
+  dataPokemon, ordenarAZ, ordenarNum,
+  filterForType, filterForWeak,
+  searchPokemon, filterForEgg, ordenarSpaw,
 } from './data.js';
 
 // const dataExtraida = dataPokemon(POKEMON);
@@ -19,6 +21,7 @@ const plantilla = (array) => {
         <p>${array[i].num}</p>
         <p>${array[i].name}</p>
         <img src="${array[i].img}"/>
+        <p>Aparicion: ${array[i].avg_spawns}%</p>
       </div>
     `;
   }
@@ -32,16 +35,15 @@ const selectOrder = document.getElementById('selectOrder');
 const selectType = document.getElementById('selectType');
 const selectDebilidad = document.getElementById('selectDebilidad');
 const selectDistanciaHuevos = document.getElementById('selectDistanciaHuevos');
-
+const selectSpwans = document.getElementById('selectSpwans');
 // Ordenar
 selectOrder.addEventListener('change', () => {
-  // eslint-disable-next-line no-console
-  console.log(selectOrder.value);
+  // console.log(selectOrder.value);
   if (selectOrder.value === 'A-Z') {
     containerPokemon.innerHTML = plantilla(ordenarAZ(arrayPokemon));
   } else if (selectOrder.value === 'Z-A') {
     containerPokemon.innerHTML = plantilla(ordenarAZ(arrayPokemon).reverse());
-  } else if (selectOrder.value === '1-151') {
+  } else {
     containerPokemon.innerHTML = plantilla(ordenarNum(arrayPokemon));
   }
 });
@@ -64,11 +66,23 @@ selectDebilidad.addEventListener('change', () => {
   containerPokemon.innerHTML = plantilla(resultadoFilterDebilidad);
 });
 
+// Muestra la Distancia para la evolución de cada huevo
 selectDistanciaHuevos.addEventListener('change', () => {
   // console.log(selectDistanciaHuevos.value);
   const selectEgg = selectDistanciaHuevos.value;
   const resultadoFilterDistancia = filterForEgg(arrayPokemon, selectEgg);
   containerPokemon.innerHTML = plantilla(resultadoFilterDistancia);
+});
+// Muestra el top 10 de frecuencia de apariciones de pokemons
+selectSpwans.addEventListener('change', () => {
+  const selectTop = selectSpwans.value;
+  let resultadoTop = [];
+  if (selectTop === 'ascSpawnsDes') {
+    resultadoTop = ordenarSpaw(arrayPokemon);
+  } else {
+    resultadoTop = ordenarSpaw(arrayPokemon).reverse();
+  }
+  containerPokemon.innerHTML = plantilla(resultadoTop.slice(0, 10));
 });
 
 // Buscar
@@ -84,18 +98,11 @@ inputSearch.addEventListener('keyup', () => {
 const modal = document.getElementById('modal');
 // const cardPokemon = document.getElementById('cardPokemon');
 const span = document.getElementsByClassName('close')[0];
-/*
-const Funcion = () => {
-  console.log('holaaaaaa');
 
-};
 // cuando le damos click cada tarjeta
 containerPokemon.addEventListener('click', () => {
-  Funcion();
-  // utilizar map
-  // modal.style.display = 'block';
+  modal.style.display = 'block';
 });
-*/
 // Cuando el usuario da click fuera del modal, se debe cerrar
 span.addEventListener('click', () => {
   modal.style.display = 'none';
