@@ -10,11 +10,16 @@ export const dataPokemon = (array) => {
       id: array[i].id,
       num: array[i].num,
       name: array[i].name,
-      type: array[i].type,
       img: array[i].img,
+      type: array[i].type,
+      height: array[i].height,
+      weight: array[i].weight,
+      candy: array[i].candy,
       avg_spawns: array[i].avg_spawns,
       weaknesses: array[i].weaknesses,
+      candyCount: array[i].candy_count,
       egg: array[i].egg,
+      spawnTime: array[i].spawn_time,
     });
   }
   return listPokemon;

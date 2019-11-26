@@ -1,9 +1,10 @@
 *{
 
   margin: 5px;
-  padding: 5px;
+  padding: 2px;
   box-sizing: border-box;
 }
+
 body{
   background-image: url(./img/fondo.jpg);
   min-height: 100vh;
@@ -13,17 +14,18 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
+  font-family: 'Montserrat', sans-serif;
 }
+
 .padre{
   font: 100;
 
 }
+/* Header */
   .header{
     background: #0A2C59;
     display: flex;
     flex-flow: column nowrap;
-
   }
     .menu{
       display: flex;
@@ -35,22 +37,24 @@ body{
       .nav{
         background: rgba(191, 146, 10, 0.247);
         flex:  1 auto;
-        height: 30px;
+        height: 20px;
 
       }
       .social{
         background: rgba(191, 146, 10, 0.247);
         flex: 1 auto;
-        height: 30px;
+        height: 20px;
         }
 
+
+  /* Seccion donde apárecen las listas de selección*/
   .opciones{
     background: #fefefe;
     font-family: Arial, Helvetica, sans-serif;
 
   }
     .img{
-      width: 15%; height: 15%;
+      width: 200px; height: auto;
       display:block;
       margin:auto;
     }
@@ -58,53 +62,38 @@ body{
 
       margin: 0 auto;
       max-width: 100%;
-      width: 1000px;
+      width: 100%;
       position: static;
-      top: 50px;
+      top: 50%;
+      left: 50%;
+      transform: (-50%,50%);
       display: flex;
       flex-direction: row;
+      flex-flow: wrap;
       justify-content: center;
+
     }
-  .modal{
-    display: none; /* Hidden es default */
-    position: fixed; /* se queda en un lugar*/
-    z-index: 1; /* se posiciona en el on top */
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb (0,0,0);
-    background-color: rgba(0, 0, 0, 0.4);
-  }
-    .modal-content {
-      background-color: #fefefe;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-    }
-    /*el boton cerrar*/
-    .close {
-      color: #aaaaaa;
-      float:  right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .close:hover, .close:focus{
-      color: #000;
-      text-decoration: none;
-      cursor: pointer;
-    }
+      .listasSeleccion select {
+        background: rgba(10, 44, 89, 0.932);
+        color:  #fefefe;
+        padding: 10px;
+        width: 200px;
+        height: 50px;
+        border: none;
+        font-size: 16px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0,.5);
+        border-radius: 10px ;
+      }
 
   .lista-pokemones{
     background: #fefefe;
+
   }
     .contenedor{
+
       width: 100%;
       height: auto;
-      /* flex stile*/
+      /* flex stile */
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -113,13 +102,15 @@ body{
       padding: 20px 0 60px 0;
     }
       .card{
-        width: 200px;
-        height: 220px;
-        background: rgba(10, 44, 89, 0.116);
+        width: 250px;
+        height: 300px;
+        padding: 30px 50px;
+        background: rgba(10, 44, 89, 0.089);
         margin:20px;
         box-sizing: border-box;
-        font-size:20px;
+        font-size:17px;
         border-radius: 20px;
+        border: 1px solid #e1e1e1;
         text-align: center;
         margin-bottom: 1%;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.623);
@@ -131,25 +122,73 @@ body{
       }
       .card img {
         border-radius: 5px 5px 0 0;
-        width: 50%;
+        width: 65%;
       }
-      .card p {
-        font-size: 70%;
-
+      .card .type-icon-main {
+        max-width: 25%;
+        margin: 8px auto 0;
+        justify-content: space-around;
       }
-      /* responsive media queries*/
-      @media screen and (max-width:1200px){
-        .card{
-          width: 40%;
-        }
-      }
-      @media screen and (max-width:600px){
-        .card{
-          width: 40%;
-        }
+      .card .type-icon-text {
+        font-size:12px;
+        text-align: center;
       }
 
+  /* Sección del Modal*/
+  .flex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-betweennter; /* hotizontalmente va a repartir los elementos */
+    align-items: center; /* centra verticalmente*/
+  }
+  .modal{
+    display: none; /* en main esta block al dar click se activa*/
+    position: fixed; /* se queda en un lugar*/
+    z-index: 1; /* se posiciona en el on top */
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* por si el height es mas grande quue el documento*/
+    background-color: rgba(0, 0, 0, 0.452);
+  }
+    .contenido-modal {
+      position: relative;
+      background: #fefefe;
+      margin: auto;
+      border: 1px solid #888;
+      width: 80%;
+      box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.4);
+      animation-name: modal;
+      animation-duration: 1s;
+    }
+    /* animación para modal*/
+    @keyframes modal {
+      from {top: 330px; opacity: 0;}
+      to{top:0; opacity: 1;}
+    }
+    /*el boton cerrar*/
+    .close {
+      color: rgba(10, 44, 89, 0.342);
+      font-size: 30px;
+      font-weight: bold;
+    }
+    .close:hover, .close:focus{
+      color: #0A2C59;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
+    /*responsive modal */
+    @media screen and (max-widht:900px) {
+      .contenido-modal {
+        width: 70%;
+      }
+    }
+
+  /* Seccion del pie*/
   .footer{
     background: #0A2C59;
     display: flex;
@@ -159,22 +198,6 @@ body{
       background: #e6af2e;
       width: 300px;
     }
-
-    /*
-@media all and (max-width: 800px){
-  .contenedor{
-    flex-direction: column;
-  }
-  .menu {
-    flex-direction: column;
-    height: auto;
-  }
-}
-
-*/
-
-/*de las tarjetas*/
-
 
 
 

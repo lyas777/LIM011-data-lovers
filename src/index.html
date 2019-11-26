@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
   </head>
   <body>
     <!--pagina de la pokepedia-->
@@ -14,14 +17,16 @@
         <div class="menu">
           <div class="nav"></div>
           <div class="social"></div>
-          <input id="inputSearch" class="searchInput" type="text" />
-          <button id="botonSearch" class="searchInput">Buscar</button>
+          <div id="search-box">
+              <input id="inputSearch" class="search-txt" type="text" placeholder="Busca tu pokemón" />
+              <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+          </div>
         </div>
       </header>
       <section class="opciones">
         <div class="logo">
           <div>
-            <img class="img" src="./img/Logo.png" alt="" />
+            <img id="clean" class="img" src="./img/Logo.png" alt="" />
           </div>
         </div>
 
@@ -29,9 +34,9 @@
           <div id="filtroOrdenar">
             <select name="" id="selectOrder">
               <option value="" disabled selected>Ordenar por</option>
-              <option value="A-Z">Ordenar A-Z</option>
-              <option value="Z-A">Ordena Z-A</option>
-              <option value="1-151">Ordena por número</option>
+              <option value="A-Z">Nombres de A-Z</option>
+              <option value="Z-A">Nombres de Z-A</option>
+              <option value="1-151">Número</option>
             </select>
           </div>
           <div id="filtroTipo">
@@ -77,19 +82,17 @@
               <option value="Dragon">Dragón</option>
             </select>
           </div>
-          <div class="listasSeleccion">
-              <div id="filtroSpawns">
-                <select name="" id="selectSpwans">
-                  <option value="" disabled selected>Top 10 frecuencia de aparición</option>
-                  <option value="ascSpawnsDes">Muestra de Mayor a Menor</option>
-                  <option value="ascSpawnsAsc">Muestra de Menor a Mayor</option>
-                </select>
-              </div>
+          <div id="filtroSpaw">
+            <select name="" id="selectSpwans">
+              <option value="" disabled selected>Top 10 aparición</option>
+              <option value="ascSpawnsDes">Alta probabilidad</option>
+              <option value="ascSpawnsAsc">Baja probabilidad</option>
+            </select>
           </div>
-          <div id="FiltroPorDistancia">
+          <div id="filtroDistancia">
             <select name="" id="selectDistanciaHuevos">
-              <option value="" disabled selected>Huevos</option>
-              <option value="Not in Eggs">No tiene Huevos</option>
+              <option value="" disabled selected>Eclosio - EGG</option>
+              <option value="Not in Eggs">No esta en un Huevo</option>
               <option value="2 km">2 KM</option>
               <option value="5 km">5 KM</option>
               <option value="10 km">10 KM</option>
@@ -98,22 +101,29 @@
         </div>
 
       </section>
-      <!--Sección para Modal-->
-      <section id="myModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Algo mientras</p>
-        </div>
-      </section>
-
-
+      <!--Seccion de la lista de pokemons-->
       <section class="lista-pokemones">
         <div class="contenedor"></div>
         <!--segunda forma de llamar con json-->
         <div class="" id="contenido"></div>
       </section>
+      <!--Sección Modal-->
+      <section>
+        <div id="pokemon-modal" class="modal">
+          <div class="flex" id="flex">
+            <div class="contenido-modal">
+              <div class="modal-header flex">
+                <span class="close" id="close">&times;</span>
+              </div>
+              <div id="pokemon-detalle" class="modal-body">
+                <h2>Detalles del Pokemon</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <footer class="footer">
-        <nav class="pie">Pagina desarrollada por Lyascat</nav>
+        <nav class="pie">Pagina desarrollada por  Lyascat &copy</nav>
       </footer>
     </div>
 
