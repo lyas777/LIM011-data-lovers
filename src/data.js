@@ -15,11 +15,13 @@ export const dataPokemon = (array) => {
       height: array[i].height,
       weight: array[i].weight,
       candy: array[i].candy,
-      avg_spawns: array[i].avg_spawns,
-      weaknesses: array[i].weaknesses,
       candyCount: array[i].candy_count,
       egg: array[i].egg,
+      avg_spawns: array[i].avg_spawns,
       spawnTime: array[i].spawn_time,
+      weaknesses: array[i].weaknesses,
+      prevEvolution: array[i].prev_evolution,
+      nextEvolution: array[i].next_evolution,
     });
   }
   return listPokemon;

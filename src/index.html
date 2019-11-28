@@ -9,19 +9,28 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/753ba76035.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <!--pagina de la pokepedia-->
     <div class="padre">
       <header class="header">
-        <div class="menu">
-          <div class="nav"></div>
-          <div class="social"></div>
-          <div id="search-box">
-              <input id="inputSearch" class="search-txt" type="text" placeholder="Busca tu pokemón" />
-              <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+        <na class="menu">
+          <div class="logoInicio">
+            <a href="index.html">PokemonExplorer</a>
           </div>
-        </div>
+          <nav class="nav">
+              <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>
+                Inicio</a>
+              <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo"><i class="fas fa-globe-americas"></i>App</a>
+              <a href="https://www.pokemongo.com/es-es/"><i class="fas fa-globe-americas"></i>Página oficial</a>
+              <a href="https://www.pokemongolive.com/es/"><i class="fas fa-envelope"></i>Noticias</a>
+          </nav>
+          <div id="search-box">
+              <input id="inputSearch" class="search-txt" type="text" placeholder="Busca tu pokemón"/><a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+          </div>
+        </na>
       </header>
       <section class="opciones">
         <div class="logo">
@@ -103,6 +112,7 @@
       </section>
       <!--Seccion de la lista de pokemons-->
       <section class="lista-pokemones">
+        <h2 style="text-align: center;"> Lista de Pokemones de la Región Kanto</h2>
         <div class="contenedor"></div>
         <!--segunda forma de llamar con json-->
         <div class="" id="contenido"></div>
@@ -127,6 +137,6 @@
       </footer>
     </div>
 
-    <script type="module" src="main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

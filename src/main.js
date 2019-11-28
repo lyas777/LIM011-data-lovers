@@ -18,15 +18,13 @@ const selectType = document.getElementById('selectType');
 const selectDebilidad = document.getElementById('selectDebilidad');
 const selectDistanciaHuevos = document.getElementById('selectDistanciaHuevos');
 const selectSpwans = document.getElementById('selectSpwans');
-
 // Buscar
 const inputSearch = document.querySelector('#inputSearch');
-
 // Funcion para generar la Plantilla de lista de pokemons
 const plantilla = (array) => {
   let stringTemplate = '';
   let template = '';
-  if (array.length === 0) stringTemplate = '<p class="alertNot"> Lo siento, no se encontraron Pokemons </>';
+  if (array.length === 0) stringTemplate = '<h2 class="alertNot"> Lo siento, no se encontraron Pokemons </h2>';
   for (let j = 0; j < array.length; j += 1) {
     template = `
       <div id="${array[j].id}" class="card">
@@ -36,6 +34,7 @@ const plantilla = (array) => {
         <p class="type-icon-text">Tipo de Pokemón:</p>
     `;
     for (let i = 0; i < array[j].type.length; i += 1) {
+      const pokemonType = arrayPokemon[j].type[i];
       let imageFile = '';
       switch (array[j].type[i]) {
         case 'Steal': imageFile = 'steel.png'; break;
@@ -59,7 +58,9 @@ const plantilla = (array) => {
         // no default
       }
       template += `
-                  <img class="type-icon-main" src="img/${imageFile}">`;
+                  <img class="type-icon-main" src="img/${imageFile}">
+                  <!--<strong class='text-tripack'>${pokemonType}</strong>-->
+                  `;
     }
     // eslint-disable-next-line quotes
     template += `</div>`;
@@ -71,211 +72,102 @@ const plantilla = (array) => {
 containerPokemon.innerHTML = plantilla(arrayPokemon);
 
 // Creando otro Modal
-
 const createModal = () => {
   const allPokemon = document.querySelectorAll('.card');
   allPokemon.forEach((abrir) => {
     abrir.addEventListener('click', (event) => {
       modal.style.display = 'block';
+      ordenarNum(arrayPokemon);
       const pokemonId = event.currentTarget.id - 1;
       const pokemonDetalle = document.getElementById('pokemon-detalle');
       let plantillaModal = '';
       // Variables para poder insertar los datos en el Modal
-
-      const iconsTipo = '';
+      let iconsTipo = '';
       let tipoEgg = '';
       let cantCandy = arrayPokemon[pokemonId].candyCount;
+      let anteriorEvolución = '';
+      let siguienteEvolución = '';
 
-      if (arrayPokemon.cantCandy === undefined) {
+      // para obtener  el valor
+      if (arrayPokemon[pokemonId].candyCount === undefined) {
         cantCandy = 0;
       }
 
       if (arrayPokemon.egg !== 'Not in Eggs') {
         tipoEgg = `
-        <span class="line-vertical"></span>
-        <div class="item-tripack">
-          <div class='cont-tipo'>
-            <img src="img/icon-huevo.png" alt="icon-huevo">
-            <p class='text-tripack'>${arrayPokemon[pokemonId].egg}</p>
-        </div>
-      </div>`;
-      }
-      for (let j = 0; j < arrayPokemon[pokemonId].type; j += 1) {
-        const pokemonType = arrayPokemon.type[j];
-        iconsTipo += `
-        <div class='cont-tipo'><img src="img/${pokemonType.toLowerCase()}.png" alt="${pokemonType}">
-        <strong class='text-tripack'>${pokemonType}</strong></div>
+        <img src="img/icon-huevo.png" alt="icon-huevo">
+        <p>${arrayPokemon[pokemonId].egg}</p>
         `;
+      }
+      // Para obtener el tipo de pokemon
+      for (let i = 0; i < arrayPokemon[pokemonId].type.length; i += 1) {
+        const pokemonType = arrayPokemon[pokemonId].type[i];
+        iconsTipo += `
+        <img class="type-icon" src="img/${pokemonType.toLowerCase()}.png" alt="${pokemonType}">
+        `;
+      }
+
+      if (arrayPokemon[pokemonId].prevEvolution === undefined) {
+        anteriorEvolución = 'No tiene';
+      } else {
+        anteriorEvolución = arrayPokemon[pokemonId].prevEvolution[0].name;
+      }
+      if (arrayPokemon[pokemonId].nextEvolution === undefined) {
+        siguienteEvolución = 'No tiene';
+      } else {
+        siguienteEvolución = arrayPokemon[pokemonId].nextEvolution[0].name;
       }
       // Detalle del Modal
       plantillaModal += `
-      <div class="content-pokemones display-flex">
-        <img class="img-pokemon" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${arrayPokemon[pokemonId].num}.png"/>
-        <div class="contenido-poke">
-          <h2 class="nombre-pokemon">${arrayPokemon[pokemonId].name}</h2>
-          <div class="info-tripack display-flex">
-            <div class="item-tripack ">${iconsTipo}</div>
-            ${tipoEgg}
-          </div>
-          <div class="info-tripack display-flex">
-            <div class="item-tripack">
-              <p class="num-pokemon">${arrayPokemon[pokemonId].weight}</p>
-              <strong class="text-tripack">Peso</strong>
-            </div>
-            <span class="line-vertical"></span>
-            <div class="item-tripack">
-              <p class="num-pokemon">${arrayPokemon[pokemonId].avg_spawns}</p>
-              <strong class="text-tripack">% Spawns</strong>
-            </div>
-            <span class="line-vertical"></span>
-            <div class="item-tripack">
-              <p class="num-pokemon">${arrayPokemon[pokemonId].height}</p>
-              <strong class="text-tripack">Altura</strong>
-            </div>
-          </div>
-          <table class="more-info">
-            <tr>
-              <th>Hora de Spawn:</th>
-              <td>${arrayPokemon[pokemonId].spawnTime}</td>
-            </tr>
-            <tr>
-              <th>Debilidad:</th>
-              <td>${arrayPokemon[pokemonId].weaknesses.toString().replace(/,/g, ', ')}</td>
-            </tr>
-            <tr>
-              <th>Caramelo:</th>
-              <td>${arrayPokemon[pokemonId].candy}</td>
-            </tr>
-            <tr>
-              <th>Cant. Caramelo:</th>
-              <td>${cantCandy}</td>
-            </tr>
-          </table>
+      <div class="pkmn__container">
+        <div class="pkmn__picture">
+            <img class="pkmn__png" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${arrayPokemon[pokemonId].num}.png"/>
+            <div class="pkmn__exp-bar"></div>
         </div>
-      <button id="" class="btn btn-more"></button>
-    </div>
+        <div class="pkmn__info">
+            <div class="pkmn__name">${arrayPokemon[pokemonId].name}
+              <p>${iconsTipo}</p>
+            </div>
+            <div class="pkmn__data">
+                <div class="pkmn__weight">${arrayPokemon[pokemonId].weight}<p class="text--small">Peso</p></div>
+                <div class="pkmn__type">${arrayPokemon[pokemonId].type}<p class="text--small">Tipo</p></div>
+                <div class="pkmn__height">${arrayPokemon[pokemonId].height}<p class="text--small">Altura</p></div>
+            </div>
+            <div class="pkmn___data2">
 
+                  <div class="pkmn__egg">${tipoEgg}<p class="text--small">Eclosión</p></div>
+                  <div class="pkmn__candy">
+                    <img src="img/candy.png" alt="icon-candy">
+                    <p>${cantCandy}</p><p class="text--small">${arrayPokemon[pokemonId].candy}</p>
+                  </div>
+            </div>
+
+            <div class="pkmn__evolucion">
+              <h4>Evolución</h4>
+              <div class="pkmn__anterior">${anteriorEvolución}<p class="text--small">Anterior</p></div>
+              <div class="pkmn__siguiente">
+              ${siguienteEvolución}<p class="text--small">Siguiente</p></div>
+            </div>
+        </div>
+        </div>
+      </div>
       `;
-
       // al final se inserta el contenido en pokemonDetalle
       pokemonDetalle.innerHTML = plantillaModal;
     });
   });
 };
 createModal();
-
-/*
-// Sección de la función para crear el Modal
-
-const creaModal = (array) => {
-  const divItems = containerPokemon.getElementsByTagName('div');
-  // console.log(divItems);
-  // En esta sección se obtiene los id's de cada tarjeta
-  for (let i = 0; i < divItems.length; i += 1) {
-    const divItem = document.getElementById(divItems[i].getAttribute('id'));
-    // clic en cada tarjeta
-    divItem.addEventListener('click', () => {
-      modal.style.display = 'block';
-      const pokemonDetalle = document.getElementById('pokemon-detalle');
-      let plantillaModal = '';
-      // Detalle de Modal
-      plantillaModal = `
-        <div class="img-container">
-          <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${array[i].num}.png"/>
-        </div>
-        <div class="pokemon-text center-text">
-          <h1>${array[i].name}</h1>
-          <span class="pokemon-text-two data-text">N.º ${array[i].num}</span>
-        </div>
-        <div class="detail-container">
-          <div class="center-text center-text-two">
-            <p class="data-number">${array[i].weight}</p>
-            <p class="data-text">Peso</p>
-        </div>
-        <div class="center-text center-text-two">`;
-      // extraer las imagenes de iconos
-      for (let x = 0; x < array[i].type.length; x += 1) {
-        let imageFile = '';
-        switch (array[i].type[i]) {
-          case 'Steal': imageFile = 'steel.png'; break;
-          case 'Water': imageFile = 'water.png'; break;
-          case 'Bug': imageFile = 'bug.png'; break;
-          case 'Dragon': imageFile = 'dragon.png'; break;
-          case 'Electric': imageFile = 'electric.png'; break;
-          case 'Ghost': imageFile = 'ghost.png'; break;
-          case 'Fire': imageFile = 'fire.png'; break;
-          case 'Fairy': imageFile = 'fairy.png'; break;
-          case 'Ice': imageFile = 'ice.png'; break;
-          case 'Fighting': imageFile = 'fighting.png'; break;
-          case 'Normal': imageFile = 'normal.png'; break;
-          case 'Grass': imageFile = 'grass.png'; break;
-          case 'Psychic': imageFile = 'psychic.png'; break;
-          case 'Rock': imageFile = 'rock.png'; break;
-          case 'Dark': imageFile = 'dark.png'; break;
-          case 'Ground': imageFile = 'ground.png'; break;
-          case 'Poison': imageFile = 'poison.png'; break;
-          case 'Flying': imageFile = 'flying.png'; break;
-          // no default
-        }
-        plantillaModal += `
-          <img class="type-icon" src="img/${imageFile}">
-          <p class="data-text"> ${array[i].type[i]} </p>`;
-      }
-      plantillaModal += `</div>
-        <div class="center-text center-text-two">
-          <p class="data-number">${array[i].height}</p>
-          <p class="data-text">Altura</p>
-        </div>
-      </div>`;
-      if (array[i].candy_count !== undefined) {
-        plantillaModal += `
-        <div class="detail-container2 center-text pokemon-text">
-          <div>
-            <img class="caramel-icon" src="img/candy.png">
-            <p class="pokemon-text-second data-number">${array[i].candy_count}</p>
-            <p class="pokemon-text-third data-text">Caramelos</p>
-          </div>
-        `;
-      }
-      plantillaModal += `
-        <div>
-        <p class="pokemon-text-second data-number">${array[i].egg}</p>
-        <p class="pokemon-text-third data-text">Huevos</p>
-        </div>
-      </div>`;
-
-      if (array[i].next_evolution !== undefined) {
-        plantillaModal += `
-        <div class="detail-container3 center-text pokemon-text">
-      <p class="pokemon-text-four data-text"><strong>Evolución:</strong> ${array[i].next_evolution[0].name}</p></div>
-      `;
-      }
-      plantillaModal += `</div>
-        <div class="detail-container3 center-text pokemon-text">
-          <p class="pokemon-text-four data-text"><strong>Debilidades:</strong> ${array[i].weaknesses}</p>
-        </div>
-      </div>`;
-      pokemonDetalle.innerHTML = plantillaModal;
-    });
-  }
-};
-
-creaModal(pokemonData);
-*/
-
 // Funcion para cerrar modal
-
 close.addEventListener('click', () => {
   modal.style.display = 'none';
 });
 
 window.addEventListener('click', (e) => {
-  if (e.target === flex) {
+  if (e.target === flex || e.target === modal) {
     modal.style.display = 'none';
   }
 });
-
-
 // Ordenar
 selectOrder.addEventListener('change', () => {
   // console.log(selectOrder.value);
@@ -333,10 +225,11 @@ selectSpwans.addEventListener('change', () => {
 });
 
 // sección de búsqueda
-
 inputSearch.addEventListener('keyup', () => {
   const pokemon = inputSearch.value.toLowerCase();
   const pokemonBuscado = searchPokemon(arrayPokemon, pokemon);
   containerPokemon.innerHTML = plantilla(pokemonBuscado);
   createModal();
 });
+
+// seccion para limpiar

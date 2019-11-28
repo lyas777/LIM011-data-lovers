@@ -17,9 +17,12 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
-.padre{
-  font: 100;
+a{
+  text-decoration: none;
+}
 
+.padre{
+  font-size: 16px;
 }
 /* Header */
   .header{
@@ -135,13 +138,6 @@ body{
       }
 
   /* Sección del Modal*/
-  .flex {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-betweennter; /* hotizontalmente va a repartir los elementos */
-    align-items: center; /* centra verticalmente*/
-  }
   .modal{
     display: none; /* en main esta block al dar click se activa*/
     position: fixed; /* se queda en un lugar*/
@@ -156,13 +152,16 @@ body{
   }
     .contenido-modal {
       position: relative;
-      background: #fefefe;
       margin: auto;
-      border: 1px solid #888;
-      width: 80%;
-      box-shadow: 0 0 6px 0 rgb(0, 0, 0, 0.4);
-      animation-name: modal;
-      animation-duration: 1s;
+      border: 1px solid rgba(243, 239, 239, 0.199);
+      box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.589);
+      width: 21rem;
+      height: 39rem;
+      background-image: url("./img/details_type_bg_fire.png");
+      background-size: 100% 100%;
+      margin: 1rem auto;
+      padding-top: 1rem;
+      border-radius: 0.5rem;
     }
     /* animación para modal*/
     @keyframes modal {
@@ -171,12 +170,19 @@ body{
     }
     /*el boton cerrar*/
     .close {
-      color: rgba(10, 44, 89, 0.342);
+      color: rgba(254, 254, 255, 0.336);
+      background: rgba(216, 204, 204, 0.068);
+      border-radius: 5px;
+      width: 35px;
+      text-align: center;
       font-size: 30px;
       font-weight: bold;
+      position: absolute;
+      top: 3px;
+      right: 3px;
     }
     .close:hover, .close:focus{
-      color: #0A2C59;
+      color: rgb(250, 250, 250);
       text-decoration: none;
       cursor: pointer;
     }
@@ -187,6 +193,155 @@ body{
         width: 70%;
       }
     }
+    /* Seccion dentro del card del modal*/
+    .text--small {
+      margin-top: 0rem;
+      font-size: 0.7rem;
+      color: #3F4240;
+    }
+    .pkmn__picture {
+      width: 14rem;
+      height: 11.5rem;
+      margin: 0 auto;
+    }
+    .pkmn__png {
+      width: 200px; height: auto;
+      display:block;
+      margin-top: -1rem;
+      position: absolute;
+      top: 30px;
+      right: 60px;
+      z-index: 1;
+    }
+    .pkmn__exp-bar{
+      width: 17rem;
+      height: 17rem;
+      border-style: solid;
+      border-color: white rgba(255, 255, 255, 0.15) transparent white;
+      border-radius: 50%;
+      margin-left: -1.6rem;
+      margin-top: 1rem;
+      }
+    span {
+      font-size: 1.5rem;
+    }
+    .pkmn__info {
+      width: 100%;
+      height: 420px;
+      background: #fefefe;
+      box-shadow: rgba(76, 82, 78, 0.767);
+      margin: 0 auto;
+      border-radius: 0.5rem;
+      padding: 0.3rem 0 0.3rem 0;
+      position: relative;
+      top: -30px;
+    }
+      .pkmn__name{
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+          .pkmn__name::before{
+            content: "";
+            width: 12rem;
+            height: 0.5rem;
+            border-radius: 0.5rem;
+            background: #6FEDB8;
+            margin-top: 2.2rem;
+            margin-left: -3.8rem;
+            position: absolute;
+            right: 55px;
+            top: 10px;
+          }
+          .pkmn__name .type-icon{
+            max-width: 10%;
+            margin: 8px auto 0;
+            position: relative;
+            right: 10px;
+          }
+      .pkmn__data {
+        width: 20rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.8rem;
+      }
+          .pkmn__type, .pkmn__weight, .pkmn__height {
+            position: relative;
+            top: -12px;
+            right: 10px;
+            width: 5.1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            border-right: solid 0.1rem rgba(0, 0, 0, 0.16);
+            padding-bottom: 3rem; /* se extiende la barra lateral*/
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+          }
+          .pkmn__type {
+            width: 7rem;
+            padding-right: 1rem;
+          }
+          .pkmn__height {
+            border-right: none;
+          }
+      .pkmn___data2 {
+          width: 18rem;
+          height: 4rem;
+          display: flex;
+          border-top: solid 0.1rem rgba(0, 0, 0, 0.16);
+          padding-top: 0.8rem;
+          margin: 0 auto 0 auto;
+      }
+          .pkmn__egg, .pkmn__candy {
+            width: 9rem;
+            text-align: center;
+            position: relative;
+
+          }
+          .pkmn__egg{
+            border-right: solid 0.1rem rgba(0, 0, 0, 0.16);
+            padding-bottom: 6rem;
+            position: relative;
+          }
+          .pkmn__egg img{
+            width: 30px;
+            display:block;
+            margin:auto;
+          }
+          .pkmn__candy img{
+            width: 40px;
+            display:block;
+            margin:auto;
+          }
+      .pkmn__evolucion{
+        width: 18rem;
+        height: 4rem;
+        display: flex;
+        border-top: solid 0.1rem rgba(0, 0, 0, 0.16);
+        padding-top: 0.8rem;
+        margin: 0 auto 0 auto;
+        position: relative;
+        top: 80px;
+      }
+          .pkmn__evolucion h4{
+            position: absolute;
+            right: 100px;
+
+          }
+          .pkmn__anterior{
+            border-right: solid 0.1rem rgba(0, 0, 0, 0.16);
+            width: 9rem;
+            text-align: center;
+            position: relative;
+            top: 30px;
+          }
+          .pkmn__siguiente{
+            width: 9rem;
+            text-align: center;
+            position: relative;
+            top: 30px;
+          }
 
   /* Seccion del pie*/
   .footer{
@@ -197,7 +352,5 @@ body{
     .pie{
       background: #e6af2e;
       width: 300px;
-    }
-
-
-
+      height: 30px;
+  }
