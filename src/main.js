@@ -24,7 +24,7 @@ const inputSearch = document.querySelector('#inputSearch');
 const plantilla = (array) => {
   let stringTemplate = '';
   let template = '';
-  if (array.length === 0) stringTemplate = '<h2 class="alertNot"> Lo siento, no se encontraron Pokemons </h2>';
+  if (array.length === 0) stringTemplate = '<h5 class="alertNot"> Lo siento, no se encontraron Pokemones </h5>';
   for (let j = 0; j < array.length; j += 1) {
     template = `
       <div id="${array[j].id}" class="card">
