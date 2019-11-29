@@ -20,75 +20,118 @@ simple de hacerlo es creando _interfaces_ y _visualizaciones_.
 
 ## 2. Resumen del proyecto
 
-En este proyecto **se ha construido una _página web_ para visualizar un
-_conjunto (set) de datos provenientes de Pokemon Go!_** del cual se ha adecuado según las necesidades del usuario.
+En este proyecto se ha construido una _página web_ que permita a los usuarios de _Pokemon Go!_ consultar el listado completo de los Pokémons de la región Kanto. Para ello, pueden visualizar un
+_conjunto (set) de datos provenientes de Pokemon Go!_ del cual se ha adecuado según las necesidades del usuario.
 
 Como entregable final se presenta una página web que permite a los usuarios
 **mostrar, filtrar, ordenar y buscar**.
-### Los datos utilizados provienes de la siguiente iformación:
+
+A continuación se muestra el resultado final de la página
+
+#### Imagen del proyecto
+
+Captura del proyecto en pantalla Desktop.
+
+![Dektop -01](img_red/pantalla_final.png)
+
+![phone -01](img_red/pantalla2.png)
+
+Captura del proyecto en pantalla para Celular.
+![Dektop -01](img_red/pantallaMovil.png)
+
+
+### Los datos utilizados provienen de la siguiente información:
 
 * [Pokémon](src/data/pokemon/pokemon.json):
   El cual contiene una lista con los 151 Pokémon de la región de Kanto
 
   [Pokémon GO](http://pokemongolive.com).
 
-## 3. Investigación con jugadores de Pokémon Go
 
-#### 1. Descubrimiento e investigacón
+
+## 3. Investigación UX de Pokémon Go.
+
+Primero se ha realizado una encuesta de usabilidad del juego, a un grupo de 5 personas aproximadamente, de quienes se ha podído recabar las siguiente información:
+
+#### 1. Descubrimiento e investigación
+Al inicio se ha realizado a un grupo de 9 personas, una consulta si conocen o no la aplicación de Pokemon go!, de quienes se ha podido encontrar que 6 afirmaron habar usado la aplicación de Pokemon Go! y 3 manifestaron que no les agradaba la aplicación.
+
 #### 2. Sistensis y definición
-#### 3. Ideación
-#### 4. Prototipado
-#### 5. User Testing
-  Ejemplo:
-  Usuario 1:
-  Usuario 2:
-  Usuario 3:
 
-#### Historias de usuario
+El usuario objetivo son los jugadores de la aplicación móvil Pokémon Go.
 
-Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
-de Usuario](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
-todo lo que el usuario necesita hacer/ver. Las **Historias de Usuario** deben
-ser el resultado de tu proceso de entendimiento de tus usuarios.
+- Para la realización del proyecto se ha recurrio al testeo con tres usuarios.
+- tres de ellos eran jugadores frencuentes de la aplicación PokemonGo y los demás conocían la aplicación pero habían dejado de jugar.
+- Se preguntó a todos ellos cual es la información más importante que ellos necesitan encontrar en el aplicativo.
+- En base a la información realizada, se procedió a realizar un testeo a través de un prototipo de baja fidelidad, donde nos señalaron los elementos que identificaron. De acuerdo a estos comentarios, se decidio realizar cambios y mejoras para realizar el primer producto entregable.
+- Para una segunda entrebista, se a traves de los colaboradores, se identificaron algunas acciones e información que los usuarios reconocían como información que ellos buscaban o creian mas relevante.
+- Así mismo, también se obtuvo feeback del squad (compañeras de laborattoria) y coach.
 
-Asegúrate de incluir la definición de terminado (_definition of done_) y los
-Criterios de Aceptación para cada una.
+A continuación se muestra el prototipado en baja fidelidad.
 
-En la medida de lo posible, termina de construir una historia de usuario antes
-de pasar a la siguiente (Cumple con Definición de Terminado + Criterios de
-Aceptación).
+#### Imagenes
 
-### Diseño de la Interfaz de Usuario
 
-#### Prototipo de baja fidelidad
 
-Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
-solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
-iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
-`README.md`.
+#### 3. Historias de Usuario.
 
-#### Prototipo de alta fidelidad
+A partir de la información proporcionada, se ha obtenido las siguientes Hitorias de Usuario.:
 
-Lo siguiente es diseñar tu Interfaz de Usuario (UI por sus siglas en inglés -
-_User Interface_). Para eso debes aprender a utilizar alguna herramienta de
-diseño visual. Nosotros te recomendamos [Figma](https://www.figma.com/) que es
-una herramienta que funciona en el navegador y, además, puedes crear una cuenta
-gratis. Sin embargo, eres libre de utilizar otros editores gráficos como
-Illustrator, Photoshop, PowerPoint, Keynote, etc. Recuerda utilizar la
-[identidad gráfica](https://drive.google.com/open?id=1eeWFqrWpy-OYOH4EHDckFGunyrm9iNeE)
-correspondiente a cada set de datos que elijas.
+#### SPRINT 1
+>Historia 1: Quiero poder ver a todos los pokemones al ingresar a la página para saber toda la información sobre ellos.
+#### Criterio de aceptación.
+- [x] Se debe visualizar a todos los pokemones.
+- [x] Por pokemón se debe de visualizar el nombre y numero respectivo.
+- [x] La ventana de los pokemones debe de tener los filtros de tipo, debilidad, ordenar por tipos y un buscador.
 
-El diseño debe representar el _ideal_ de tu solución. Digamos que es lo que
-desearías implementar si tuvieras tiempo ilimitado para trabajar. Además, tu
-diseño debe seguir los fundamentos de _visual design_.
+>Historia 2: Como usuaria quiero poder elegir un pokemon para ver sus características más relevantes.
 
-#### Testeos de usabilidad
+#### Criterio de aceptación
+- [x] Al seleccionar a un pokemon se debe mostrar un modal.
+- [x] En la ventana de emergente se debe de visualizar las características relevantes.
+- [x] Las características se tiene que visualizar debajo de la imagen del pokemon seleccionado.
+- [x] La ventana emergente o modal, tiene que tener la opción de cerrar.
 
-Durante el reto deberás hacer _tests_ de usabilidad con distintos usuarios, y
-en base a los resultados, deberás iterar tus diseños. Cuéntanos
-qué problemas de usabilidad detectaste a través de los _tests_ y cómo los
-mejoraste en tu propuesta final.
+#### SPRINT 2
+>Historia 3: Quiero poder obtener ordenar la lista de los pokemones de (A-Z, Z-A) para tener una visualización  por nombre del cada pokemon.
 
+#### Criterio de aceptación
+- [x] Al filtrar la opción de ordenar por A-Z se debe mostrar los pokemones en ese orden.
+- [x] Al filtrar la opción de ordenar por Z-A se debe mostrar los pokemones en ese orden.
+- [x] Al filtrar la opción de ordenar por 1-152 se debe mostrar los pokemones en ese orden.
+
+#### SPRINT 3
+
+>Historia 4: Como Usuario quiero poder  filtrar por tipo los pokemones para saber cuantos tengo.
+
+#### Criterio de aceptación
+- [x] El usuario tenga la opción del filtro.
+- [x] El usuario al seleccionar el filtro por tipo se despliegue toda los tipos de pokemón.
+- [x] El usuario pueda seleccionar cualquier tipo de pokemon.
+- [x] El usuario al seleccionar un tipo se visualice los pokemones correspondientes.
+- [x] El usuario pueda visualizar el total de los pokemones segun el filtro.
+- [x] Que el usuario luego de realizar el filtro por tipo pueda filtrar todo los pokemones.
+- [x] Que la lista de cada pokemon al hacer clic se pueda ver las características relevantes.
+
+> Historia 5: Quiero poder  filtrar por debilidades de los pokemones.
+
+#### Criterio de aceptación
+- [x] Que los pokemones se visualice por tipo de debilidad.
+- [x] Que nos muestre los pokemones que son débiles con otros de diferente tipo.
+
+> Historia 6s: Como usuario quiero obtener el porcentaje de los pokemones que aparecen en los diferentes tipos de huevo para saber que huevos eclosionar.
+
+#### 4. Prototipado de Alta fidelidad:
+
+A traves de la Herramienta Figma se ha podido realizar un prototipo de alta fidelidad, el cual se puede visualizar en los siguientes Links:
+
+Para Desktop:
+
+https://www.figma.com/proto/xLYlIf49aQz5QCm0jkfZEL/Pokepedia?node-id=90%3A2&scaling=scale-down
+
+Para equipos móviles:
+
+https://www.figma.com/proto/xLYlIf49aQz5QCm0jkfZEL/Pokepedia?node-id=100%3A11&scaling=scale-down
 
 
 ## 4. Objetivos de aprendizaje
