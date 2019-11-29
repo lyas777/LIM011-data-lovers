@@ -102,7 +102,7 @@ A partir de la información proporcionada, se ha obtenido las siguientes Hitoria
 
 #### SPRINT 3
 
->Historia 4: Como Usuario quiero poder  filtrar por tipo los pokemones para saber cuantos tengo.
+>Historia 4: Como Usuario quiero poder  filtrar por tipo los pokemones.
 
 #### Criterio de aceptación
 - [x] El usuario tenga la opción del filtro.
@@ -120,6 +120,14 @@ A partir de la información proporcionada, se ha obtenido las siguientes Hitoria
 - [x] Que nos muestre los pokemones que son débiles con otros de diferente tipo.
 
 > Historia 6s: Como usuario quiero obtener el porcentaje de los pokemones que aparecen en los diferentes tipos de huevo para saber que huevos eclosionar.
+
+#### Criterio de aceptación
+- [x] El usuario tenga la opción la opción del filtro por huevo.
+- [x] El usuario al seleccionar el filtro por tipo de huevo según km se desplegue toda las opciones.
+- [x] El usuario pueda seleccionar cualquier tipo de km de pokemón.
+- [x] El usuario al seleccionar cualquier km de huevo se visualice los pokemones correspondientes.
+- [x] El usuario pueda visualizar el % según el km seleccionado.
+- [x] Que la lista de cada pokemon al hacer clic se pueda ver las características relevantes.
 
 #### 4. Prototipado de Alta fidelidad:
 
