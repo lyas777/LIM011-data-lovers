@@ -16,21 +16,18 @@
     <!--pagina de la pokepedia-->
     <div class="padre">
       <header class="header">
-        <na class="menu">
-          <div class="logoInicio">
-            <a href="index.html">PokemonExplorer</a>
-          </div>
+        <nav class="menu">
           <nav class="nav">
               <a href="index.html"><i class="fa fa-home" aria-hidden="true"></i>
                 Inicio</a>
-              <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo"><i class="fas fa-globe-americas"></i>App</a>
-              <a href="https://www.pokemongo.com/es-es/"><i class="fas fa-globe-americas"></i>Página oficial</a>
-              <a href="https://www.pokemongolive.com/es/"><i class="fas fa-envelope"></i>Noticias</a>
+              <a href="https://play.google.com/store/apps/details?id=com.nianticlabs.pokemongo" target="blank"><i class="fas fa-gamepad"></i>App</a>
+              <a href="https://www.pokemongo.com/es-es/" target="blank"><i class="fas fa-globe-americas"></i>Página oficial</a>
+              <a href="https://www.pokemongolive.com/es/" target="blank"><i class="fas fa-envelope"></i>Noticias</a>
           </nav>
           <div id="search-box">
-              <input id="inputSearch" class="search-txt" type="text" placeholder="Busca tu pokemón"/><a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+              <input id="inputSearch" class="search-txt" type="text" placeholder="Busca tu pokemón"/><a class="search-btn" href="#"></a>
           </div>
-        </na>
+        </nav>
       </header>
       <section class="opciones">
         <div class="logo">
@@ -41,7 +38,7 @@
 
         <div class="listasSeleccion">
           <div id="filtroOrdenar">
-            <select name="" id="selectOrder">
+            <select name="" id="selectOrder" class="dropdown">
               <option value="" disabled selected>Ordenar por</option>
               <option value="A-Z">Nombres de A-Z</option>
               <option value="Z-A">Nombres de Z-A</option>
@@ -49,7 +46,7 @@
             </select>
           </div>
           <div id="filtroTipo">
-            <select name="" id="selectType">
+            <select name="" id="selectType" class="dropdown">
               <option value="" disabled selected>Tipos de Pokemón</option>
               <option value="Grass">Planta</option>
               <option value="Poison">Veneno</option>
@@ -71,7 +68,7 @@
           </div>
 
           <div id="filtroDebilidad">
-            <select name="" id="selectDebilidad">
+            <select name="" id="selectDebilidad" class="dropdown">
               <option value="" disabled selected>Debilidades</option>
               <option value="Grass">Planta</option>
               <option value="Poison">Veneno</option>
@@ -92,14 +89,14 @@
             </select>
           </div>
           <div id="filtroSpaw">
-            <select name="" id="selectSpwans">
+            <select name="" id="selectSpwans" class="dropdown">
               <option value="" disabled selected>Top 10 aparición</option>
               <option value="ascSpawnsDes">Alta probabilidad</option>
               <option value="ascSpawnsAsc">Baja probabilidad</option>
             </select>
           </div>
           <div id="filtroDistancia">
-            <select name="" id="selectDistanciaHuevos">
+            <select name="" id="selectDistanciaHuevos" class="dropdown">
               <option value="" disabled selected>Eclosio - EGG</option>
               <option value="Not in Eggs">No esta en un Huevo</option>
               <option value="2 km">2 KM</option>
@@ -112,7 +109,7 @@
       </section>
       <!--Seccion de la lista de pokemons-->
       <section class="lista-pokemones">
-        <h2 style="text-align: center;"> Lista de Pokemones de la Región Kanto</h2>
+        <h3 style="text-align: center;"> Lista de Pokemones de la Región Kanto</h3>
         <div class="contenedor"></div>
         <!--segunda forma de llamar con json-->
         <div class="" id="contenido"></div>
@@ -132,8 +129,18 @@
           </div>
         </div>
       </section>
-      <footer class="footer">
-        <nav class="pie">Pagina desarrollada por  Lyascat &copy</nav>
+      <footer id="footer">
+        <div class="cotainer clearfix">
+          <div class="social-media">
+            <nav>
+                <a href="https://www.facebook.com/PokemonGO/" target="blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/PokemonGoApp" target="blank"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://www.instagram.com/pokemongoapp/" target="blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCA-Dq8UvqoI4sDB8AEQdc0w?pbjreload=10" target="blank"><i class="fab fa-youtube"></i></a>
+            </nav>
+          </div>
+        </div>
+        <p class="copyRight">Pagina desarrollada por  Lyascat &copy</p>
       </footer>
     </div>
 
